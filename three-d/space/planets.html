@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>星球宇宙（A-Frame版）</title>
+  <script src="https://cdn.jsdelivr.net/npm/aframe@1.5.0/dist/aframe-master.min.js"></script>
+</head>
+<body>
+  <a-scene>
+    <!-- 环境：黑色太空 -->
+    <a-sky color="#000010"></a-sky>
+    <a-light type="ambient" color="#ffffff" intensity="0.35"></a-light>
+    <a-light type="point" position="0 1.6 -8" color="#ffffff" intensity="1.2"></a-light>
+
+    <!-- 太阳：发光黄球，自转 -->
+    <a-sphere position="0 1.6 -8" radius="1.2" color="#ffcc33"
+              animation="property: rotation; to: 0 360 0; dur: 12000; loop: true; easing: linear">
+    </a-sphere>
+
+    <!-- 地球公转组：绕太阳转，组内地球偏移 3.5 -->
+    <a-entity position="0 1.6 -8"
+              animation="property: rotation; to: 0 360 0; dur: 10000; loop: true; easing: linear">
+      <a-sphere position="3.5 0 0" radius="0.5" color="#2196f3"
+                animation="property: rotation; to: 0 360 0; dur: 3000; loop: true; easing: linear">
+        <!-- 月球绕地球：内嵌一个快转组，月球偏移 0.9 -->
+        <a-entity animation="property: rotation; to: 0 360 0; dur: 2000; loop: true; easing: linear">
+          <a-sphere position="0.9 0 0" radius="0.13" color="#cccccc"></a-sphere>
+        </a-entity>
+      </a-sphere>
+    </a-entity>
+
+    <!-- 土星公转组：球体 + 圆环（torus 几何体，与球体不同的 primitive） -->
+    <a-entity position="0 1.6 -8"
+              animation="property: rotation; to: 0 360 0; dur: 18000; loop: true; easing: linear">
+      <a-sphere position="6.5 0 0" radius="0.7" color="#e0c08a">
+        <a-entity geometry="primitive: torus; radius: 1.1; radiusTubular: 0.07"
+                  material="color: #c9a86a"
+                  rotation="-90 20 0">
+        </a-entity>
+      </a-sphere>
+    </a-entity>
+
+    <!-- 相机初始位：平视稍远，看向太阳 -->
+    <a-camera position="0 2.2 5"></a-camera>
+  </a-scene>
+
+  <!-- 星空：场景加载后程序化撒 150 颗白色小球 -->
+  <script>
+    document.querySelector('a-scene').addEventListener('loaded', function () {
+      for (let i = 0; i < 150; i++) {
+        const star = document.createElement('a-sphere');
+        const r = 35 + Math.random() * 25;
+        const theta = Math.random() * Math.PI * 2;
+        const phi = Math.acos(2 * Math.random() - 1);
+        star.setAttribute('position', {
+          x: r * Math.sin(phi) * Math.cos(theta),
+          y: r * Math.cos(phi),
+          z: r * Math.sin(phi) * Math.sin(theta)
+        });
+        star.setAttribute('radius', 0.22);
+        star.setAttribute('color', '#ffffff');
+        this.appendChild(star);
+      }
+    });
+  </script>
+</body>
+</html>
