@@ -35,6 +35,19 @@ const starGeo = new THREE.BufferGeometry();
 starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
 scene.add(new THREE.Points(starGeo, new THREE.PointsMaterial({ color: 0xffffff, size: 0.18 })));
 
+// 行星轨道线：水平圆环（LineLoop），标出公转路径
+const makeOrbit = (radius) => {
+  const points = [];
+  for (let i = 0; i <= 64; i++) {
+    const a = (i / 64) * Math.PI * 2;
+    points.push(new THREE.Vector3(Math.cos(a) * radius, 0, Math.sin(a) * radius));
+  }
+  const geo = new THREE.BufferGeometry().setFromPoints(points);
+  return new THREE.LineLoop(geo, new THREE.LineBasicMaterial({ color: 0x445577 }));
+};
+scene.add(makeOrbit(4));    // 地球轨道
+scene.add(makeOrbit(7.5));  // 土星轨道
+
 // ===== 太阳：球体 + 自发光材质（MeshBasicMaterial 不受光，看起来自己发光） =====
 const sun = new THREE.Mesh(
   new THREE.SphereGeometry(1.2, 32, 32),
