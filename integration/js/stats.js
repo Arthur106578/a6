@@ -41,9 +41,15 @@ const loadData = async () => {
     statusEl.style.display = 'none';
     renderChart(data);
   } catch (err) {
-    // 本地直接打开页面时回退到内嵌数据
-    statusEl.style.display = 'none';
-    renderChart(FALLBACK);
+    // 直接双击打开(file://)时 fetch 被浏览器拦截：回退到内嵌数据
+    // 通过本地服务器访问且加载失败时：显示错误提示，便于演示“断网/失败”状态
+    if (location.protocol === 'file:') {
+      statusEl.style.display = 'none';
+      renderChart(FALLBACK);
+    } else {
+      statusEl.textContent = '加载失败：' + err.message + '（请检查 data.json 是否存在或网络是否正常）';
+      statusEl.style.display = 'block';
+    }
   }
 };
 
