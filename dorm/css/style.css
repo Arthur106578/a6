@@ -1,0 +1,21 @@
+/* 宿舍信息中心：统一样式 */
+body {
+  background-color: #f4f7f5;
+  font-family: "Microsoft YaHei", sans-serif;
+}
+
+.hero {
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  padding: 28px 16px;
+}
+
+.card {
+  border: 1px solid #dee2e6;
+  transition: box-shadow 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
