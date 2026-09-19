@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自习室查询 - 校园信息中心</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">校园信息中心</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">首页</a></li>
+          <li class="nav-item"><a class="nav-link active" href="rooms.html">自习室</a></li>
+          <li class="nav-item"><a class="nav-link" href="stats.html">统计</a></li>
+          <li class="nav-item"><a class="nav-link" href="campus3d.html">校园三维</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-4">
+    <h1 class="h4 mb-3">自习室查询</h1>
+
+    <!-- 筛选区：楼层 + 开放状态 -->
+    <section class="card mb-3">
+      <div class="card-body d-flex flex-wrap gap-3 align-items-end">
+        <div>
+          <label for="floor" class="form-label">楼层</label>
+          <select id="floor" class="form-select">
+            <option value="all">全部楼层</option>
+            <option value="1">1 楼</option>
+            <option value="2">2 楼</option>
+            <option value="3">3 楼</option>
+          </select>
+        </div>
+        <div>
+          <label for="status" class="form-label">状态</label>
+          <select id="status" class="form-select">
+            <option value="all">全部状态</option>
+            <option value="open">开放中</option>
+            <option value="closed">已关闭</option>
+          </select>
+        </div>
+        <button id="reset" class="btn btn-outline-secondary btn-sm">重置</button>
+      </div>
+    </section>
+
+    <!-- 列表由JS动态渲染 -->
+    <ul id="room-list" class="list-group"></ul>
+  </main>
+
+  <footer class="text-center text-muted small py-3">综合作品演示 · 课堂成果组装</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/rooms.js"></script>
+</body>
+</html>
