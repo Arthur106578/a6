@@ -1,0 +1,6 @@
+[
+  { "id": 1, "name": "第一食堂", "area": "东区", "floors": 3, "openHours": "06:30-21:00", "rating": 4.5, "tags": ["快餐", "面食", "小吃"] },
+  { "id": 2, "name": "第二食堂", "area": "西区", "floors": 2, "openHours": "07:00-20:30", "rating": 4.2, "tags": ["套餐", "清真"] },
+  { "id": 3, "name": "清真食堂", "area": "东区", "floors": 1, "openHours": "07:00-19:00", "rating": 4.6, "tags": ["清真", "面食"] },
+  { "id": 4, "name": "风味食堂", "area": "西区", "floors": 2, "openHours": "10:00-22:00", "rating": 4.4, "tags": ["小吃", "川菜"] }
+]

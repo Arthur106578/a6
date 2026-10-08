@@ -1,0 +1,11 @@
+[
+  { "id": 101, "canteenId": 1, "name": "红烧肉盖饭", "price": 15, "category": "主食", "calories": 680, "rating": 4.7 },
+  { "id": 102, "canteenId": 1, "name": "番茄牛腩面", "price": 12, "category": "面食", "calories": 520, "rating": 4.5 },
+  { "id": 103, "canteenId": 1, "name": "麻辣香锅", "price": 20, "category": "炒菜", "calories": 750, "rating": 4.6 },
+  { "id": 201, "canteenId": 2, "name": "黄焖鸡套餐", "price": 18, "category": "套餐", "calories": 750, "rating": 4.3 },
+  { "id": 202, "canteenId": 2, "name": "兰州拉面", "price": 13, "category": "面食", "calories": 480, "rating": 4.4 },
+  { "id": 301, "canteenId": 3, "name": "大盘鸡", "price": 25, "category": "主食", "calories": 820, "rating": 4.8 },
+  { "id": 302, "canteenId": 3, "name": "羊肉泡馍", "price": 16, "category": "面食", "calories": 560, "rating": 4.6 },
+  { "id": 401, "canteenId": 4, "name": "酸辣粉", "price": 10, "category": "小吃", "calories": 420, "rating": 4.5 },
+  { "id": 402, "canteenId": 4, "name": "盖浇饭", "price": 14, "category": "主食", "calories": 640, "rating": 4.2 }
+]

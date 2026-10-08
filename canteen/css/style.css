@@ -1,0 +1,100 @@
+/* 校园食堂信息中心 - 响应式自定义样式 */
+
+:root {
+  --brand: #ff6b35;
+  --brand-dark: #d9530b;
+  --bg-soft: #fff8f3;
+}
+
+body {
+  background-color: var(--bg-soft);
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+  color: #333;
+}
+
+/* 顶部品牌色 */
+.navbar-brand {
+  font-weight: 700;
+  color: var(--brand) !important;
+}
+
+.hero {
+  background: linear-gradient(135deg, #ff8a4c 0%, #ff6b35 100%);
+  color: #fff;
+  padding: 60px 0 40px;
+  border-radius: 0 0 24px 24px;
+}
+
+.hero h1 { font-weight: 700; }
+
+.stat-card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s;
+}
+.stat-card:hover { transform: translateY(-3px); }
+
+.canteen-card {
+  border: 1px solid #f0e0d4;
+  border-radius: 12px;
+  transition: box-shadow 0.2s, transform 0.2s;
+  height: 100%;
+}
+.canteen-card:hover {
+  box-shadow: 0 6px 18px rgba(255, 107, 53, 0.15);
+  transform: translateY(-2px);
+}
+
+.rating-stars { color: #ffc107; }
+
+.tag-pill {
+  display: inline-block;
+  padding: 2px 10px;
+  margin: 2px;
+  font-size: 0.75rem;
+  background: #ffe4d1;
+  color: var(--brand-dark);
+  border-radius: 999px;
+}
+
+/* 表格美化 */
+.table thead { background: #ff6b35; color: #fff; }
+.table tbody tr:hover { background: #fff3e8; }
+
+/* 图表容器 */
+.chart-box {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  height: 360px;
+}
+.chart-box h5 { margin-bottom: 8px; color: var(--brand-dark); }
+
+/* A-Frame 三维区域 */
+.scene-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  background: #cce6ff;
+}
+a-scene { width: 100% !important; height: 420px !important; }
+
+/* 错误提示 Toast 容器 */
+#toast-container {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 9999;
+  min-width: 280px;
+  max-width: 360px;
+}
+
+/* 移动端微调 */
+@media (max-width: 576px) {
+  .hero { padding: 40px 0 24px; }
+  .hero h1 { font-size: 1.6rem; }
+  .chart-box { height: 280px; }
+  a-scene { height: 280px !important; }
+}
